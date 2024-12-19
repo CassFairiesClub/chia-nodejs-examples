@@ -14,31 +14,32 @@ npm install chia-utils
 node get_memo.js
 ```
 =========================================================
-Coin Record for Tx_id => 0xd0771fec448be8fd55eec87a3d6a27586e769989449657f2b82ac4af4eb0ad96
+Coin Record for Tx_id => 0xa446d89dfe8521fe8565380ec2e25436c5e425e1dbb7232b4578c3e3d2534343
 [Object: null prototype] {
   coin_record: [Object: null prototype] {
     coin: [Object: null prototype] {
       amount: 1000000000,
-      parent_coin_info: '0x6fd64edf58fef22d232d57dba71e097dfbb5931cc3b364d49b56a9298ea3296c',
-      puzzle_hash: '0x0fc956b015c4b8637cb24b2d01d4a73c07570d04dba7a2d0b2466559b9f5ea89'
+      parent_coin_info: '0x678829ec79ddb86415689b2d7e138071fb0505432e50adce75b2f5b5072a46ab',
+      puzzle_hash: '0x53c8e63bb7e61215db3c109a168a8c7ce7d1828c438b542abe9368c83ad3f0ff'
     },
     coinbase: false,
-    confirmed_block_index: 6370060,
+    confirmed_block_index: 6371155,
     spent: false,
     spent_block_index: 0,
-    timestamp: 1734600493
+    timestamp: 1734620721
   },
   success: true
 }
 =========================================================
 Solution of the parent_coin =>
-0xff80ffff01ffff33ffa00fc956b015c4b8637cb24b2d01d4a73c07570d04dba7a2d0b2466559b9f5ea89ff843b9aca00ffff8470696e678080ffff33ffa0d9b82001795591c3d2f9d4987b5140c0493b24459f6acd154f89295e6648b447ff840569c1ea80ffff3cffa030d4933d285764e4f86618dced1bb09f2cb5293190fa03063cae72f59b026bf18080ff8080
+0xff80ffff01ffff33ffa053c8e63bb7e61215db3c109a168a8c7ce7d1828c438b542abe9368c83ad3f0ffff843b9aca00ffff8470696e678080ffff34ff82604880ffff33ffa0d9b82001795591c3d2f9d4987b5140c0493b24459f6acd154f89295e6648b447ff84773533b880ffff3cffa0f590f3b819f40473daaa4cc2154e2d39bea6801d70e803fb840c42308414740a8080ff8080
 =========================================================
 Deserialize the solution => 
-(() (q (51 0x0fc956b015c4b8637cb24b2d01d4a73c07570d04dba7a2d0b2466559b9f5ea89 0x3b9aca00 ("ping")) (51 0xd9b82001795591c3d2f9d4987b5140c0493b24459f6acd154f89295e6648b447 0x0569c1ea) (60 0x30d4933d285764e4f86618dced1bb09f2cb5293190fa03063cae72f59b026bf1)) ())
+(() (q (51 0x53c8e63bb7e61215db3c109a168a8c7ce7d1828c438b542abe9368c83ad3f0ff 0x3b9aca00 ("ping")) (52 24648) (51 0xd9b82001795591c3d2f9d4987b5140c0493b24459f6acd154f89295e6648b447 0x773533b8) (60 0xf590f3b819f40473daaa4cc2154e2d39bea6801d70e803fb840c42308414740a)) ())
 =========================================================
 Memo => 
 "ping"
 =========================================================
 ping => pong
+
 ```
