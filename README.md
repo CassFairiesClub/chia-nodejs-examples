@@ -1,8 +1,7 @@
 # chia-nodejs-examples
 Simple examples using chia-agent javascript library for learning purposes
 
-# Install
-
+# install npm packages
 npm install clvm_tools
 
 npm install clvm
@@ -11,7 +10,8 @@ npm install chia-agent
 
 npm install chia-utils
 
-## node get_memo.js
+## test
+node get_memo.js
 ```
 =========================================================
 Coin Record for Tx_id => 0xd0771fec448be8fd55eec87a3d6a27586e769989449657f2b82ac4af4eb0ad96
