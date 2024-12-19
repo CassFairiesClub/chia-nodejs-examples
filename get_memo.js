@@ -29,8 +29,8 @@ const {get_coin_record_by_name, get_puzzle_and_solution} = require("chia-agent/a
 const agent = new RPCAgent({service: "full_node"});
 
 // Change TX_ID with your own
-// test tx_id from goby wallet, goby_memo_input: ping
-const TX_ID = "0xd0771fec448be8fd55eec87a3d6a27586e769989449657f2b82ac4af4eb0ad96";
+// test tx_id from goby wallet to the marmot recovery foundation of 0.001 xch, goby_memo_input: ping
+const TX_ID = "0xa446d89dfe8521fe8565380ec2e25436c5e425e1dbb7232b4578c3e3d2534343";
 
 const coin_record_params = {name : TX_ID};
 const res1 = await get_coin_record_by_name(agent, coin_record_params);
