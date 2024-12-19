@@ -72,11 +72,11 @@ console.log("=========================================================");
 console.log('\x1b[36m%s\x1b[0m', "Deserialize the solution => ");
 console.log(outputEl);
 
-//search for matching pattern with puzzle_hash
+// search for matching pattern with puzzle_hash
+// slice at found index, then split with ' ', then get rid of parenthesis
 const found = outputEl.match(puzzle_hash)
 const memo = outputEl.slice(found.index).split(' ')[2].split('(')[1].split(')')[0];
 
-// slice at found index, then split, then get rid of parenthesis
 console.log("=========================================================");
 console.log('\x1b[36m%s\x1b[0m', "Memo => ");
 console.log(memo);
