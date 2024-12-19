@@ -20,7 +20,7 @@ npm install chia-agent
 ```
 # Examples
 ## 101 get any transaction memo
-[Get_Memo](https://pages.github.com/).
+[101_get_memo]([https://pages.github.com/](https://github.com/CassFairiesClub/chia-nodejs-examples/blob/main/examples/101_get_memo.js)).
 ```
 node get_memo.js
 >
