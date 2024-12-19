@@ -58,7 +58,3 @@ Memo =>
 =========================================================
 ping => pong
 ```
-```
-
-This will give the following output :
-
