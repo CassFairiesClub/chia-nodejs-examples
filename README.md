@@ -20,6 +20,11 @@ npm install chia-agent
 ```
 # Examples
 ## 101 get any transaction memo
+Warning : Depending on how the tx and memo were submited (from gui, cli, goby etc.) the memo field encoding can differ (hex, string, int etc.)
+Therefore the result and method to properly retrieve the memo from the deserialized solution needs to be adjusted in the script (escaping double quotes or not, adding a conversion from hex to ascii etc.)
+
+The script takes the assumption the memo and tx were submited with goby, and typeof(memo) = string.
+
 [101 get memo](https://github.com/CassFairiesClub/chia-nodejs-examples/blob/main/examples/101_get_memo.js)
 ```
 node get_memo.js
