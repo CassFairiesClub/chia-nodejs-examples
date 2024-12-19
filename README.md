@@ -1,18 +1,29 @@
 # chia-nodejs-examples
-Simple examples using chia-agent javascript library for learning purposes
+Simple examples using chia-mine javascript tools for learning purposes.
 
-# install npm packages
-npm install clvm_tools
+chia-mine is a set of tools to run CLVM and different RPC/websosket services : https://github.com/Chia-Mine.
+  - clvm-js : Javascript implementation of CLVM (Chia Lisp VM) 
+  - clvm_tools-js : Javascript implementation of clvm_tools (clvm = Chia Lisp VM)
+  - chia-agent : chia rpc/websocket client library for NodeJS.
 
-npm install clvm
+# installation
+## config
+  - chia-blockchain => 2.4.4 (full_node required)
+  - ubuntu => 24.04
+  - nodejs => 20.18.1
 
-npm install chia-agent
-
-npm install chia-utils
-
-## test
-node get_memo.js
+## install npm packages
 ```
+npm install clvm_tools
+npm install clvm
+npm install chia-agent
+```
+# Examples
+## 101 get any transaction memo
+
+```
+node get_memo.js
+>
 =========================================================
 Coin Record for Tx_id => 0xa446d89dfe8521fe8565380ec2e25436c5e425e1dbb7232b4578c3e3d2534343
 [Object: null prototype] {
@@ -41,5 +52,8 @@ Memo =>
 "ping"
 =========================================================
 ping => pong
-
 ```
+```
+
+This will give the following output :
+
