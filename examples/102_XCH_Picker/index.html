@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<head>
+    <title>XCH Picker by Cass</title>
+    <style>
+        *,
+        html { margin: 0; padding: 0; border: 0;}
+        html { width: 100%; height: 100%;}
+        body { width: 100%; height: 100%; background-color: rgb(62, 189, 79); display: flex; flex-direction: column;}
+        .center { width: 100%; margin: 0; color: white; font-family: monospace; text-align: center;}
+        .center0 { width: 100%; margin: 0; color: white; font-family: monospace; text-align: center;}
+    </style>
+</head>
+<body>
+    <div class="center0" id="top">
+        <h1 style="margin: 50px">XCH PICKER by CASS<br></h1>
+        <h1 id="H0" style="margin: 20px">Verify draw<br></h1>
+        <label for="block">Block:</label>
+        <input type="number" id="block" name="block" min="1" max="1000000000" value="6379970" />
+        <label for="range0">Number Range:</label>
+        <input type="number" id="range0" name="range0" min="1" max="1000000000" value="420" />
+        <button id="button1" onclick="verify()">Verify</button>
+        <p id="par0" style="color: rgb(0, 49, 7); margin: 20px">Waiting for verification</p>
+    </div>
+    <div class="center" id="center">
+        <h1 id="H1" style="margin: 20px">Random integer between 1 and 420<br></h1>
+        <label for="range">Number range:</label>
+        <input type="number" id="range" name="range" min="1" max="1000000" value="420" />
+        <p id="par1" style="color: blue; margin: 20px">Waiting for next block</p>
+        
+    </div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+function hash2rand(header_hash, max) {
+  const safe_big_int = 281474976710655; // 0xffff ffff ffff 
+  const HH_Int = parseInt(header_hash.substring(0,14), 16)+1;
+  // Check if within range, if not discard the header_hash
+  if(HH_Int > Math.floor(safe_big_int/max)*max){
+    return 0; 
+  }else{
+    return String(((HH_Int % max) + 1)).padStart(max.length, '0');
+  }
+}
+
+const socket = io();
+
+const range = document.getElementById('range');
+let max_range = document.getElementById('range').value;
+
+
+range.addEventListener("change", (event) => {
+    max_range = range.value;
+    document.getElementById('H1').innerText = "Random integer between 1 and " + max_range
+    console.log("new max range : " + max_range)
+});
+socket.on('block', (msg) => {
+    const block = msg.split(' ')[0]
+    const header_hash = msg.split(' ')[1]
+    const rand = hash2rand(header_hash, max_range)
+    const payload = block + " - " + header_hash + " - " + rand
+    console.log(payload);
+    document.getElementById('par1').innerHTML = payload;
+    const p = document.createElement("p");
+    p.innerHTML = payload;
+    document.getElementById('center').appendChild(p);
+
+});
+
+socket.on('header_hash', (msg) => {
+    if(msg == "Not a valid block"){
+        document.getElementById('par0').innerHTML = msg;
+    }else{
+    const block = msg.split(' ')[0]
+    const header_hash = msg.split(' ')[1]
+    const range = document.getElementById('range0').value
+    const rand = hash2rand(header_hash, range)
+    const payload = block + " - " + header_hash + " - " + rand
+    console.log(payload);
+    document.getElementById('par0').innerHTML = payload;
+    }
+});
+
+function verify() {
+    const block = document.getElementById('block').value
+    console.log(block)
+    socket.emit('verify', block);
+}
+</script>
+</body>
+</html>
