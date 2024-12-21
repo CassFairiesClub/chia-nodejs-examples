@@ -59,7 +59,7 @@ Memo =>
 ping => pong
 ```
 ## 102 XCH Picker - websocket connection to the daemon
-[102 xch_picker](https://github.com/CassFairiesClub/chia-nodejs-examples/blob/main/examples/102_xch_picker/)
+[102 xch_picker](https://github.com/CassFairiesClub/chia-nodejs-examples/blob/main/examples/102_XCH_Picker/)
 Let's spice things up! We add here a simple http server and a websocket connection, basically building our first app interacting with the full node daemon.
 The XCH Picker takes block header hashes first 12 hex characters and converts it to an integer. After sample rejection to make sure we don't introduce a bias, we then modulo that integer with a max range number.
 
