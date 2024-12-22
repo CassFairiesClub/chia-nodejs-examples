@@ -17,6 +17,7 @@ chia-mine is a set of tools to run CLVM and different RPC/websosket services : h
 npm install clvm_tools
 npm install clvm
 npm install chia-agent
+npm install socket.io
 ```
 # Examples
 ## 101 get any transaction memo
